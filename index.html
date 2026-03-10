@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mattias Andersson – Digital Marketer & Paid Ads Specialist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #1a1a1a;
+            --accent: #39ff14;
+            --accent-light: #66ff42;
+            --text: #f5f1eb;
+            --text-light: #d4cfc8;
+            --bg: #0f0f0f;
+            --border: #2a2a2a;
+            --contact-bg: #1a1a1a;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.6;
+        }
+
+        /* HEADER & HERO */
+        header {
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text);
+            font-size: 0.95rem;
+            font-weight: 500;
+            margin-left: 2.5rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* HERO SECTION */
+        .hero {
+            padding: 6rem 0;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(57, 255, 20, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            right: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(57, 255, 20, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        .hero h1 .highlight {
+            color: var(--accent);
+            text-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            max-width: 600px;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 0 20px rgba(57, 255, 20, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.6);
+            background: var(--accent-light);
+        }
+
+        /* STATS SECTION */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            padding-top: 3rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .stat-item {
+            animation: fadeInUp 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .stat-item:nth-child(1) { animation-delay: 0.3s; }
+        .stat-item:nth-child(2) { animation-delay: 0.4s; }
+        .stat-item:nth-child(3) { animation-delay: 0.5s; }
+
+        .stat-number {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--accent);
+            font-family: 'Space Mono', monospace;
+            text-shadow: 0 0 10px rgba(57, 255, 20, 0.3);
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            margin-top: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* PROJECTS SECTION */
+        .section {
+            padding: 6rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 3rem;
+            color: var(--text);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            background: var(--primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            cursor: pointer;
+            animation: fadeInUp 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .project-card:nth-child(1) { animation-delay: 0.2s; }
+        .project-card:nth-child(2) { animation-delay: 0.3s; }
+        .project-card:nth-child(3) { animation-delay: 0.4s; }
+        .project-card:nth-child(4) { animation-delay: 0.5s; }
+
+        .project-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 30px rgba(57, 255, 20, 0.3);
+            transform: translateY(-8px);
+        }
+
+        .project-header {
+            background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+            padding: 2rem;
+            min-height: 150px;
+            display: flex;
+            align-items: flex-end;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            opacity: 0.05;
+        }
+
+        .project-tag {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-body {
+            padding: 2rem;
+        }
+
+        .project-description {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 0.95rem;
+        }
+
+        .project-metrics {
+            background: rgba(57, 255, 20, 0.08);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            border: 1px solid rgba(57, 255, 20, 0.15);
+        }
+
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric:last-child {
+            margin-bottom: 0;
+        }
+
+        .metric-label {
+            color: var(--text-light);
+        }
+
+        .metric-value {
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .project-link {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .project-link::after {
+            content: ' →';
+            transition: transform 0.3s;
+        }
+
+        .project-link:hover::after {
+            transform: translateX(5px);
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            position: relative;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            width: 100%;
+        }
+
+        .modal-image {
+            max-width: 90%;
+            max-height: 90%;
+            animation: zoomIn 0.4s ease-out;
+            border-radius: 8px;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            color: var(--text);
+            font-size: 2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .modal-close:hover {
+            color: var(--accent);
+        }
+
+        /* SKILLS SECTION */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            padding: 1.5rem;
+            background: var(--primary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            animation: fadeInUp 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .skill-category:nth-child(1) { animation-delay: 0.1s; }
+        .skill-category:nth-child(2) { animation-delay: 0.2s; }
+        .skill-category:nth-child(3) { animation-delay: 0.3s; }
+        .skill-category:nth-child(4) { animation-delay: 0.4s; }
+        .skill-category:nth-child(5) { animation-delay: 0.5s; }
+        .skill-category:nth-child(6) { animation-delay: 0.6s; }
+
+        .skill-category h3 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--accent);
+            font-size: 1rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.8;
+        }
+
+        .skill-category li {
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-category li:before {
+            content: "• ";
+            color: var(--accent);
+            margin-right: 0.5rem;
+        }
+
+        /* CONTACT SECTION */
+        .contact-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: var(--contact-bg);
+            color: white;
+            border-radius: 12px;
+            margin-top: 4rem;
+            border: 1px solid var(--border);
+        }
+
+        .contact-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            text-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 0;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid var(--accent);
+            border-radius: 50px;
+            transition: all 0.3s;
+        }
+
+        .contact-link:hover {
+            background: rgba(57, 255, 20, 0.15);
+            box-shadow: 0 0 15px rgba(57, 255, 20, 0.3);
+        }
+
+        /* FOOTER */
+        footer {
+            padding: 2rem 0;
+            text-align: center;
+            color: var(--text-light);
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            nav a {
+                margin-left: 1.5rem;
+                font-size: 0.85rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            header .container {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+
+            nav {
+                display: flex;
+                gap: 1rem;
+            }
+
+            .modal-image {
+                max-width: 95%;
+                max-height: 85%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="container">
+        <div class="logo">MA</div>
+        <nav>
+            <a href="#projects">Projekt</a>
+            <a href="#skills">Skickligheter</a>
+            <a href="#contact">Kontakt</a>
+        </nav>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <h1>Här är min <span class="highlight">portfolio</span></h1>
+        <p>Ifall du har några frågor till mig är det bara att ställa</p>
+        <a href="#contact" class="cta-button">Fråga en fråga</a>
+
+        <div class="stats">
+            <div class="stat-item">
+                <div class="stat-number">11M+</div>
+                <div class="stat-label">Video views på TikTok</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">25.41</div>
+                <div class="stat-label">Bästa uppnådd ROAS på (30 dagars) perspektiv</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">TikTok Ad Library</div>
+                <div class="stat-label">Featured annonser</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section" id="projects">
+    <div class="container">
+        <h2 class="section-title">Projekt & Resultat</h2>
+
+        <div class="projects-grid">
+            <!-- PROJECT 1: TIKTOK ADS -->
+            <div class="project-card" onclick="openModal('project1')">
+                <div class="project-header">
+                    <div>
+                        <span class="project-tag">PAID ADS</span>
+                        <h3 class="project-title">TikTok Ad Library</h3>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">Annonser valda av TikTok för att visas andra marknadsförare baserat på performance och kreativ kvalitet.</p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Video Views:</span>
+                            <span class="metric-value">11M+</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Engagement Rate:</span>
+                            <span class="metric-value">+340%</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Status:</span>
+                            <span class="metric-value">Top Ads</span>
+                        </div>
+                    </div>
+                    <span class="project-link">Visa projekt</span>
+                </div>
+            </div>
+
+            <!-- PROJECT 2: CONTENT EXPANSION -->
+            <div class="project-card" onclick="openModal('project2')">
+                <div class="project-header">
+                    <div>
+                        <span class="project-tag">SOCIAL MEDIA</span>
+                        <h3 class="project-title">YouTube Shorts Expansion</h3>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">Utökade kundens sociala mediekanaler till YouTube Shorts – resulterade i större räckvidd och engagemang.</p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-label">Nya Följare:</span>
+                            <span class="metric-value">+47%</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Engagemang:</span>
+                            <span class="metric-value">Ökat</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Kanaler:</span>
+                            <span class="metric-value">3 → 4</span>
+                        </div>
+                    </div>
+                    <span class="project-link">Visa projekt</span>
+                </div>
+            </div>
+
+            <!-- PROJECT 3: META & GOOGLE ADS -->
+            <div class="project-card" onclick="openModal('project3')">
+                <div class="project-header">
+                    <div>
+                        <span class="project-tag">PERFORMANCE</span>
+                        <h3 class="project-title">Meta & Google Ads</h3>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">Optimering av kampanjer across Meta och Google – fokus på konvertering och ROAS.</p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-label">ROAS:</span>
+                            <span class="metric-value">6.73</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Conversion Rate:</span>
+                            <span class="metric-value">+85%</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">ROI:</span>
+                            <span class="metric-value">Positiv</span>
+                        </div>
+                    </div>
+                    <span class="project-link">Visa projekt</span>
+                </div>
+            </div>
+
+            <!-- PROJECT 4: WEB & SEO -->
+            <div class="project-card" onclick="openModal('project4')">
+                <div class="project-header">
+                    <div>
+                        <span class="project-tag">WEB & SEO</span>
+                        <h3 class="project-title">Restaurang-hemsida</h3>
+                    </div>
+                </div>
+                <div class="project-body">
+                    <p class="project-description">Skapade och SEO-anpassade en hemsida för restaurang. Optimerad med SEMrush för lokala sökningar.</p>
+                    <div class="project-metrics">
+                        <div class="metric">
+                            <span class="metric-label">WordPress:</span>
+                            <span class="metric-value">✓</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">SEO-optimerad:</span>
+                            <span class="metric-value">✓</span>
+                        </div>
+                        <div class="metric">
+                            <span class="metric-label">Responsive:</span>
+                            <span class="metric-value">✓</span>
+                        </div>
+                    </div>
+                    <span class="project-link">Visa projekt</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- MODALS -->
+<div id="project1Modal" class="modal" onclick="closeModal('project1')">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('project1')">&times;</span>
+        <img src="https://via.placeholder.com/800x600?text=TikTok+Ad+Library" alt="TikTok Ad Library" class="modal-image">
+    </div>
+</div>
+
+<div id="project2Modal" class="modal" onclick="closeModal('project2')">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('project2')">&times;</span>
+        <img src="https://via.placeholder.com/800x600?text=YouTube+Shorts" alt="YouTube Shorts" class="modal-image">
+    </div>
+</div>
+
+<div id="project3Modal" class="modal" onclick="closeModal('project3')">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('project3')">&times;</span>
+        <img src="https://via.placeholder.com/800x600?text=Meta+Google+Ads" alt="Meta & Google Ads" class="modal-image">
+    </div>
+</div>
+
+<div id="project4Modal" class="modal" onclick="closeModal('project4')">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('project4')">&times;</span>
+        <img src="https://via.placeholder.com/800x600?text=Restaurant+Website" alt="Restaurang-hemsida" class="modal-image">
+    </div>
+</div>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+    <div class="container">
+        <h2 class="section-title">Vad jag kan bidra med</h2>
+
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Paid Ads</h3>
+                <ul>
+                    <li>TikTok Ads</li>
+                    <li>Meta Ads Manager</li>
+                    <li>Google Ads</li>
+                    <li>Campaign optimization</li>
+                    <li>A/B testing</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Analys & Optimering</h3>
+                <ul>
+                    <li>Google Analytics 4</li>
+                    <li>Microsoft Clarity</li>
+                    <li>Conversion Rate Optimization (CRO)</li>
+                    <li>SEO</li>
+                    <li>Data-driven decisions</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Verktyg & Plattformar</h3>
+                <ul>
+                    <li>WordPress</li>
+                    <li>Mailchimp</li>
+                    <li>Klaviyo</li>
+                    <li>Meta Business Suite</li>
+                    <li>Shopify</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Content & Video</h3>
+                <ul>
+                    <li>Videoredigering</li>
+                    <li>Social media content</li>
+                    <li>Fotografi</li>
+                    <li>Copywriting</li>
+                    <li>Content strategy</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Strategi</h3>
+                <ul>
+                    <li>Campaign planning</li>
+                    <li>Digital marketing strategy</li>
+                    <li>Channel expansion</li>
+                    <li>Performance tracking</li>
+                    <li>Budget management</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Språk & Utbildning</h3>
+                <ul>
+                    <li>Swedish (Native)</li>
+                    <li>English (Fluent)</li>
+                    <li>Kandidatexamen i Internationell Marknadsföring</li>
+                    <li>Digital marketing specialist</li>
+                    <li>Constantly learning</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section">
+    <div class="container">
+        <div class="contact-section" id="contact">
+            <h2>Låt's snacka</h2>
+            <div class="contact-links">
+                <a href="mailto:hejsan.mattias@gmail.com" class="contact-link">e-mail</a>
+                <a href="tel:+46704003375" class="contact-link">telefon (sms:a gärna)</a>
+                <a href="https://www.linkedin.com/in/mattias-andersson99/" class="contact-link">linkedin</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <div class="container">
+        <p>&copy; 2026 Mattias Andersson. Digital Marketer & Paid Ads Specialist.</p>
+    </div>
+</footer>
+
+<script>
+    function openModal(projectId) {
+        const modal = document.getElementById(projectId + 'Modal');
+        if (modal) {
+            modal.style.display = 'block';
+        }
+    }
+
+    function closeModal(projectId) {
+        const modal = document.getElementById(projectId + 'Modal');
+        if (modal) {
+            modal.style.display = 'none';
+        }
+    }
+
+    // Close modal when clicking outside the image
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = 'none';
+        }
+    }
+
+    // Close modal with Escape key
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(modal => {
+                modal.style.display = 'none';
+            });
+        }
+    });
+
+    // Parallax effect on hero section
+    const hero = document.querySelector('.hero');
+    window.addEventListener('scroll', function() {
+        const scrolled = window.pageYOffset;
+        if (hero && scrolled < window.innerHeight * 1.5) {
+            hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+        }
+    });
+</script>
+
+</body>
+</html>
