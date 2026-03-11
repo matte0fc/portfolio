@@ -15,14 +15,14 @@
         }
 
         :root {
-            --primary: #1a1a1a;
-            --accent: #4a9b8e;
-            --accent-light: #5fb5a8;
-            --text: #f5f1eb;
-            --text-light: #d4cfc8;
-            --bg: #0f0f0f;
-            --border: #2a2a2a;
-            --contact-bg: #1a1a1a;
+            --primary: #f0ebe3;
+            --accent: #1a1a1a;
+            --accent-light: #333333;
+            --text: #1a1a1a;
+            --text-light: #555550;
+            --bg: #f7f3ee;
+            --border: #ddd8d0;
+            --contact-bg: #ede8e0;
         }
 
         html {
@@ -121,7 +121,7 @@
             left: -10%;
             width: 500px;
             height: 500px;
-            background: radial-gradient(circle, rgba(74, 155, 142, 0.15) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.06) 0%, transparent 70%);
             border-radius: 50%;
             z-index: 0;
             pointer-events: none;
@@ -134,7 +134,7 @@
             right: -5%;
             width: 400px;
             height: 400px;
-            background: radial-gradient(circle, rgba(74, 155, 142, 0.1) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(0, 0, 0, 0.04) 0%, transparent 70%);
             border-radius: 50%;
             z-index: 0;
             pointer-events: none;
@@ -186,12 +186,12 @@
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s;
-            box-shadow: 0 0 20px rgba(74, 155, 142, 0.3);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
         }
 
         .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 0 30px rgba(74, 155, 142, 0.5);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
             background: var(--accent-light);
         }
 
@@ -269,12 +269,12 @@
 
         .project-card:hover {
             border-color: var(--accent);
-            box-shadow: 0 0 30px rgba(74, 155, 142, 0.2);
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.08);
             transform: translateY(-8px);
         }
 
         .project-header {
-            background: linear-gradient(135deg, #2a2a2a 0%, #1f1f1f 100%);
+            background: linear-gradient(135deg, #e8e2d9 0%, #ddd7ce 100%);
             padding: 2rem;
             min-height: 150px;
             display: flex;
@@ -327,13 +327,13 @@
         }
 
         .project-metrics {
-            background: rgba(74, 155, 142, 0.08);
+            background: rgba(0, 0, 0, 0.05);
             padding: 1rem;
             border-radius: 8px;
             margin-bottom: 1.5rem;
             font-family: 'Space Mono', monospace;
             font-size: 0.85rem;
-            border: 1px solid rgba(74, 155, 142, 0.15);
+            border: 1px solid rgba(0, 0, 0, 0.06);
         }
 
         .metric {
@@ -352,7 +352,7 @@
 
         .metric-value {
             font-weight: 700;
-            color: var(--accent);
+            color: #2e7d4f;
         }
 
         .project-link {
@@ -520,8 +520,8 @@
         }
 
         .contact-link:hover {
-            background: rgba(74, 155, 142, 0.15);
-            box-shadow: 0 0 15px rgba(74, 155, 142, 0.2);
+            background: rgba(0, 0, 0, 0.06);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
         }
 
         /* FOOTER */
@@ -686,8 +686,8 @@
                 <div class="stat-label">Högsta uppnådda ROAS (30d)</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number">TikTok Ad Library</div>
-                <div class="stat-label">Utvald som topannons</div>
+                <div class="stat-number">TikTok Ads</div>
+                <div class="stat-label">Utvald som topannons till TikTok Ad Library</div>
             </div>
         </div>
     </div>
@@ -704,6 +704,7 @@
                 <div class="project-header">
                     <div>
                         <span class="project-tag">PAID ADS</span>
+                        <span class="project-tag">ORGANIC</span>
                         <h3 class="project-title">TikTok</h3>
                     </div>
                 </div>
@@ -911,6 +912,7 @@
                     <li>Klaviyo</li>
                     <li>Meta Business Suite</li>
                     <li>Shopify</li>
+                    <li>DaVinci Resolve</li>
                 </ul>
             </div>
 
