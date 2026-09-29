@@ -160,6 +160,23 @@
   .ai-item .label span:last-child { color: var(--muted); text-decoration: underline; text-underline-offset: 5px; text-decoration-thickness: 1px; }
   .ai-item:hover .label span:last-child { color: var(--text); text-decoration-color: var(--hot); }
 
+  /* ---------- nook (side project) ---------- */
+  .nook-compare { display: grid; gap: 22px; margin-top: clamp(28px, 4vw, 44px); }
+  .nook-compare figure { background: var(--bg-2); border-radius: 18px; padding: 12px; box-shadow: inset 0 0 0 1px var(--line); }
+  .nook-compare img { width: 100%; height: auto; border-radius: 10px; }
+  .nook-compare figcaption { display: flex; gap: 12px; align-items: baseline; padding: 12px 4px 2px; font-size: 15px; color: var(--muted); }
+  .nook-compare figcaption b { color: var(--text); font-weight: 600; }
+  .nook-compare .after figcaption b { color: var(--hot); }
+  .nook-log { list-style: none; margin-top: clamp(28px, 4vw, 44px); border-top: 1px solid var(--line); counter-reset: step; }
+  .nook-log li { display: grid; grid-template-columns: 48px minmax(0, 1.15fr) minmax(0, 1fr); gap: 24px; padding: 20px 0;
+                 border-bottom: 1px solid var(--line); counter-increment: step; }
+  .nook-log li::before { content: counter(step, decimal-leading-zero); color: var(--hot); font-weight: 600;
+                         font-variant-numeric: tabular-nums; padding-top: 3px; }
+  .nook-log q { font: italic 500 20px/1.35 var(--display); quotes: "”" "”"; }
+  .nook-log p { color: var(--muted); }
+  .nook-foot { display: flex; gap: 28px; align-items: center; flex-wrap: wrap; margin-top: 28px; }
+  .nook-foot small { color: var(--muted); font-size: 14px; flex-basis: 100%; }
+
   /* ---------- contact ---------- */
   .contact { padding-top: clamp(80px, 11vw, 150px); padding-bottom: clamp(56px, 8vw, 100px); }
   .contact h2 { font-size: clamp(56px, 9vw, 120px); line-height: .95; }
@@ -209,6 +226,8 @@
     .case, .case.flip { grid-template-columns: 1fr; }
     .case.flip .visual { order: 0; }
     .skills li { grid-template-columns: 1fr; gap: 6px; }
+    .nook-log li { grid-template-columns: 36px 1fr; gap: 6px 14px; }
+    .nook-log p { grid-column: 2; }
     .channels a { grid-template-columns: 1fr auto; }
     .channels .kind { grid-column: 1 / -1; }
     .ai-series { grid-template-columns: repeat(3, 1fr); gap: 12px; }
@@ -242,6 +261,7 @@
       <a href="#resultat">Resultat</a>
       <a href="#kompetenser">Kompetenser</a>
       <a href="#ai-bilder">AI-bilder</a>
+      <a href="#nook">Egen app</a>
       <a class="nav-cta" href="#kontakt">Kontakt</a>
     </nav>
   </div>
@@ -382,6 +402,37 @@
       <div class="ai-more">
         <button class="ai-item" data-gallery="ai" data-index="3"><span class="frame"><img src="images/thumbs/ai-grid-4.jpg" alt="Cyklist på landsvägscykel i ökenlandskap, fotograferad rakt ovanifrån" loading="lazy" width="900" height="1594"></span><span class="label"><span>Cykel i öknen</span><span>Visa prompt</span></span></button>
         <button class="ai-item" data-gallery="ai" data-index="4"><span class="frame"><img src="images/thumbs/ai-grid-5.jpg" alt="Produktbild med MacBook Pro, AirPods Max och tillbehör i studioljus" loading="lazy" width="900" height="1195"></span><span class="label"><span>Produktbild i studio</span><span>Visa prompt</span></span></button>
+      </div>
+    </div>
+  </section>
+
+  <section id="nook" aria-labelledby="nook-rubrik">
+    <div class="wrap section-head">
+      <h2 id="nook-rubrik">Nook, en egen Mac-app</h2>
+      <p class="intro">Ett sidoprojekt byggt på en kväll. Jag stod för produkt och design, och Claude Code skrev koden. Nook ersätter Macens volym- och ljusstyrkeruta med en minimal indikator som glider ner ur kameraskåran.</p>
+    </div>
+    <div class="wrap">
+      <div class="nook-compare">
+        <figure>
+          <img src="images/nook-before.jpg" alt="Macens vanliga volymruta uppe till höger på skärmen, en bit från kameraskåran" loading="lazy" width="1520" height="272">
+          <figcaption><b>Före</b> Macens standardruta (illustration)</figcaption>
+        </figure>
+        <figure class="after">
+          <img src="images/nook-after.jpg" alt="Nook: en svart remsa med högtalarikon och volymstapel som sticker ut rakt under kameraskåran" loading="lazy" width="1520" height="272">
+          <figcaption><b>Efter</b> Nook, ritad av appens egen kod</figcaption>
+        </figure>
+      </div>
+      <ol class="nook-log">
+        <li><q>Gör kameraskåran användbar. Börja med volym, och låt det kännas som en del av hårdvaran.</q><p>Menyradsapp i Swift. Volymtangenterna fångas upp och Macens egen ruta visas inte längre.</p></li>
+        <li><q>Mindre avtryck, inga siffror. Samma lösning för ljusstyrka.</q><p>Bara ikon och stapel. Ljusstyrka tillagd.</p></li>
+        <li><q>Exakt samma bredd som skåran och så svart som skärmen klarar.</q><p>Ingen överhäng eller skugga. Dämpad ikon så att bakgrundsljuset inte glöder runt den.</p></li>
+        <li><q>Den ska glida rakt ner som en hiss, inte växa ut som en bubbla.</q><p>Bara höjden animeras, och ikonen åker med nederkanten.</p></li>
+        <li><q>Publicera den så att andra kan ladda ner och bygga den.</q><p>Öppen källkod på GitHub, med nedladdningsbar app.</p></li>
+      </ol>
+      <div class="nook-foot">
+        <a class="btn" href="https://github.com/matte0fc/nook" target="_blank" rel="noopener">Se projektet på GitHub</a>
+        <a class="link" href="https://github.com/matte0fc/nook/releases/latest" target="_blank" rel="noopener">Ladda ner appen</a>
+        <small>Mina instruktioner, redigerade för tydlighet. Hela förloppet finns i projektets utvecklingslogg.</small>
       </div>
     </div>
   </section>
